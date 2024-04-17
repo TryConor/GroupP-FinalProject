@@ -1,6 +1,10 @@
+package edu.mu.finalproject.hangman;
+
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
+
+import javax.swing.*;
 
 //import javax.swing.JFrame;
 
@@ -57,3 +61,4 @@ public class HangmanGame extends JFrame {
     private String getRandomWord() {
         return WORDS[(int) (Math.random() * WORDS.length)];
     }
+}
