@@ -17,6 +17,7 @@ public class HangmanGame extends JFrame {
     private char[] display;
     private Set<Character> guessedLetters;
     private int incorrectGuesses;
+    private int winCount;
 
     public HangmanGame() {
         this.word = getRandomWord();
@@ -24,6 +25,7 @@ public class HangmanGame extends JFrame {
         Arrays.fill(display, '_');
         this.guessedLetters = new HashSet<>();
         this.incorrectGuesses = 0;
+        this.winCount =0;
     }
 
     public void guessLetter(char guess) {
@@ -43,6 +45,7 @@ public class HangmanGame extends JFrame {
     }
 
     public boolean isGameWon() {
+    	winCount++;
         return new String(display).equals(word);
     }
 
