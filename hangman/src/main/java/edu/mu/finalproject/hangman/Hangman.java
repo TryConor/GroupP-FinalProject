@@ -1,59 +1,84 @@
 package edu.mu.finalproject.hangman;
 
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
+import java.awt.BorderLayout;
+import java.awt.Font;
+import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class Hangman {
-	private static final String[] WORDS = {"apple", "banana", "cherry", "date", "fig", "grape"};
-    private static final int MAX_GUESSES = 6;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+import javax.swing.border.EmptyBorder;
 
-    private String word;
-    private char[] display;
-    private Set<Character> guessedLetters;
-    private int incorrectGuesses;
+public class Hangman extends JFrame {
 
-    public HangmanGame() {
-        this.word = getRandomWord();
-        this.display = new char[word.length()];
-        Arrays.fill(display, '_');
-        this.guessedLetters = new HashSet<>();
-        this.incorrectGuesses = 0;
+    private JPanel contentPane;
+    private JTextField textField;
+    private JLabel label;
+    private HangmanGame game;
+
+
+    public Hangman() {
+        game = new HangmanGame();
+        initComponents();
     }
 
-    public void guessLetter(char guess) {
-        if (!guessedLetters.contains(guess)) {
-            guessedLetters.add(guess);
-            if (word.indexOf(guess) == -1) {
-                incorrectGuesses++;
 
-            } else {
-                for (int i = 0; i < word.length(); i++) {
-                    if (word.charAt(i) == guess) {
-                        display[i] = guess;
+    private void initComponents() {
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setBounds(100, 100, 450, 300);
+        contentPane = new JPanel();
+        contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+        setContentPane(contentPane);
+        contentPane.setLayout(new BorderLayout(0, 0));
+
+        JPanel panel = new JPanel();
+        contentPane.add(panel, BorderLayout.CENTER);
+        panel.setLayout(new GridLayout(0, 1, 0, 0));
+
+        label = new JLabel("Guess a letter:");
+        panel.add(label);
+
+        textField = new JTextField();
+        textField.setColumns(10);
+        panel.add(textField);
+
+        JButton btnGuess = new JButton("Guess");
+        btnGuess.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                String text = textField.getText();
+                if (text.length() == 1) {
+                    char guess = text.charAt(0);
+                    game.guessLetter(guess);
+                    textField.setText("");
+                    label.setText(game.getDisplay());
+                    if (game.isGameWon()) {
+                        JOptionPane.showMessageDialog(label, "You won!");
+                        dispose();
+                    } else if (game.isGameLost()) {
+                        JOptionPane.showMessageDialog(label, "You lost!");
+                        dispose();
                     }
+                    incorrectGuessesLabel.setText("Incorrect guesses: " + game.getIncorrectGuesses());
+                } else {
+                    label.setText("Please enter one letter.");
                 }
             }
-        }
-    }
+        });
+        panel.add(btnGuess);
 
-    public boolean isGameWon() {
-        return new String(display).equals(word);
-    }
+        incorrectGuessesLabel = new JLabel("Incorrect guesses: 0");
+        incorrectGuessesLabel.setFont(new Font("Tahoma", Font.PLAIN, 18));
+        contentPane.add(incorrectGuessesLabel, BorderLayout.SOUTH);
 
-    public boolean isGameLost() {
-        return incorrectGuesses == MAX_GUESSES;
+        JLabel label3 = new JLabel("Word: " + game.getDisplay());
+        label3.setFont(new Font("Tahoma", Font.PLAIN, 18));
+        contentPane.add(label3, BorderLayout.NORTH);
     }
+    private JLabel incorrectGuessesLabel;
 
-    public String getDisplay() {
-        return new String(display);
-    }
-
-    public int getIncorrectGuesses() {
-        return incorrectGuesses;
-    }
-
-    private String getRandomWord() {
-        return WORDS[(int) (Math.random() * WORDS.length)];
-    }
 }
