@@ -1,17 +1,12 @@
 package edu.mu.finalproject.hangman;
-
+import javax.swing.*;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-import javax.swing.*;
-
-//import javax.swing.JFrame;
-
 public class HangmanGame extends JFrame {
-	private HangmanDatabase database;
-	
-	private static final String[] WORDS = {"apple", "banana", "cherry", "date", "fig", "grape"};
+    private HangmanDatabase database;
+
     private static final int MAX_GUESSES = 6;
 
     private String word;
@@ -22,26 +17,14 @@ public class HangmanGame extends JFrame {
     private int lossCount;
 
     public HangmanGame() {
-    	this.database = new HangmanDatabase();
-        this.word = getRandomWord();
+        this.database = new HangmanDatabase();
+        this.word = getRandomWordForLevel(1); // Get a random word from level 1
         this.display = new char[word.length()];
         Arrays.fill(display, '_');
         this.guessedLetters = new HashSet<>();
         this.incorrectGuesses = 0;
         this.winCount = 0;
         this.lossCount = 0;
-    }
-    
-    //Method to get words for a given level
-    private String[] getWordsForLevel(int level) {
-    	String levelKey = "level" + level;
-    	return database.getWordsForLevel(levelKey);
-    }
-    
-    //Method to get a random word for a given level
-    private String getRandomWordForLevel(int level) {
-    	String[] words = getWordsForLevel(level);
-    	return words [(int) (Math.random() * words.length)];
     }
 
     public void guessLetter(char guess) {
@@ -61,12 +44,12 @@ public class HangmanGame extends JFrame {
     }
 
     public boolean isGameWon() {
-    	winCount++;
+        winCount++;
         return new String(display).equals(word);
     }
 
     public boolean isGameLost() {
-    	lossCount--;
+        lossCount--;
         return incorrectGuesses == MAX_GUESSES;
     }
 
@@ -78,7 +61,8 @@ public class HangmanGame extends JFrame {
         return incorrectGuesses;
     }
 
-    private String getRandomWord() {
-        return WORDS[(int) (Math.random() * WORDS.length)];
+    private String getRandomWordForLevel(int level) {
+        String[] words = database.getWordsForLevel("college_major", "level" + level);
+        return words[(int) (Math.random() * words.length)];
     }
 }

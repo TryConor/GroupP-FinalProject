@@ -4,6 +4,7 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import java.io.FileReader;
 import java.io.IOException;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,7 +14,8 @@ public class HangmanDatabase {
     public HangmanDatabase() {
         try {
             Gson gson = new Gson();
-            FileReader reader = new FileReader("hangman_database.json");
+            String filePath = Paths.get("files", "hangman_database.json").toString();
+            FileReader reader = new FileReader(filePath);
             database = gson.fromJson(reader, JsonObject.class);
             reader.close();
         } catch (IOException e) {
@@ -21,8 +23,9 @@ public class HangmanDatabase {
         }
     }
 
-    public String[] getWordsForLevel(String level) {
-        JsonArray jsonArray = database.getAsJsonArray(level);
+    public String[] getWordsForLevel(String category, String level) {
+        JsonObject categoryObject = database.getAsJsonObject("categories").getAsJsonObject(category);
+        JsonArray jsonArray = categoryObject.getAsJsonArray(level);
         List<String> wordList = new ArrayList<>();
         for (int i = 0; i < jsonArray.size(); i++) {
             wordList.add(jsonArray.get(i).getAsString());
