@@ -9,6 +9,7 @@ import javax.swing.*;
 //import javax.swing.JFrame;
 
 public class HangmanGame extends JFrame {
+	private HangmanDatabase database;
 	
 	private static final String[] WORDS = {"apple", "banana", "cherry", "date", "fig", "grape"};
     private static final int MAX_GUESSES = 6;
@@ -21,6 +22,7 @@ public class HangmanGame extends JFrame {
     private int lossCount;
 
     public HangmanGame() {
+    	this.database = new HangmanDatabase();
         this.word = getRandomWord();
         this.display = new char[word.length()];
         Arrays.fill(display, '_');
@@ -28,6 +30,18 @@ public class HangmanGame extends JFrame {
         this.incorrectGuesses = 0;
         this.winCount = 0;
         this.lossCount = 0;
+    }
+    
+    //Method to get words for a given level
+    private String[] getWordsForLevel(int level) {
+    	String levelKey = "level" + level;
+    	return database.getWordsForLevel(levelKey);
+    }
+    
+    //Method to get a random word for a given level
+    private String getRandomWordForLevel(int level) {
+    	String[] words = getWordsForLevel(level);
+    	return words [(int) (Math.random() * words.length)];
     }
 
     public void guessLetter(char guess) {
