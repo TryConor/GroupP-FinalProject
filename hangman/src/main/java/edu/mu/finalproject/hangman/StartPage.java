@@ -1,7 +1,10 @@
 package edu.mu.finalproject.hangman;
 
 import java.awt.Font;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
+import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -59,5 +62,34 @@ public class StartPage extends JFrame{
       //default selection/what shows up before clicking level
         levels.setSelectedItem("Select level:");
         this.setVisible(true);
+        
+      //create text field so user can enter their name
+        //will add functionality later so this can be used for user stats info
+        textField = new JTextField();
+        textField.setBounds(125, 145, 170, 20);
+        this.getContentPane().add(textField);
+        textField.setColumns(10);
+        
+        //label the text box for user to input name
+        JLabel Name = new JLabel("Name:");
+        Name.setBounds(87, 148, 39, 14);
+        this.getContentPane().add(Name);
+        
+        //Create a button for the user to start playing Hangman
+        JButton startButton = new JButton("Press Here to Start");
+        startButton.setBounds(125, 279, 170, 23);
+        this.getContentPane().add(startButton);
+        
+        
+        startButton.addMouseListener(new MouseAdapter() {
+        	public void mouseClicked(MouseEvent e) {
+        		//make mouse listener so that when button is clicked the hangman game is started
+                Hangman hangman = new Hangman();
+            	hangman.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            	hangman.setVisible(true);
+            	StartPage.super.dispose();
+				
+			}
+        });
 	}
 }
