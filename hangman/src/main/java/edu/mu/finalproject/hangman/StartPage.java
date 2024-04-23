@@ -11,7 +11,7 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 
 public class StartPage extends JFrame{
-	private JTextField textField;
+	private JTextField nameField;
 	public StartPage() {
 	
 		//set title for page and size
@@ -59,16 +59,21 @@ public class StartPage extends JFrame{
         levels.addItem("4");
         levels.addItem("5");
         
-      //default selection/what shows up before clicking level
+        //default selection/what shows up before clicking level
+        //add error checking later to make sure user selected level, otherwise assign random?
         levels.setSelectedItem("Select level:");
         this.setVisible(true);
         
-      //create text field so user can enter their name
+
+        
+        //create text field so user can enter their name
         //will add functionality later so this can be used for user stats info
-        textField = new JTextField();
-        textField.setBounds(125, 145, 170, 20);
-        this.getContentPane().add(textField);
-        textField.setColumns(10);
+        nameField = new JTextField();
+        nameField.setBounds(125, 145, 170, 20);
+        this.getContentPane().add(nameField);
+        nameField.setColumns(10);
+        
+        //set default value so if user enters no name it defaults to "guest" or similar
         
         //label the text box for user to input name
         JLabel Name = new JLabel("Name:");
