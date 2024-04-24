@@ -21,7 +21,7 @@ public class StartPage extends JFrame{
 		//create title for the top of the page
 		JLabel Title = new JLabel("Hangman Game");
         Title.setBounds(58, 34, 311, 100);
-        Font startFont = new Font("Nirmala UI", Font.PLAIN, 40);
+        
         Title.setFont(new Font("Nirmala UI", Font.PLAIN, 42));
         this.getContentPane().add(Title);
         
