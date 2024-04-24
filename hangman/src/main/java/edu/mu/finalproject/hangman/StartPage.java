@@ -33,15 +33,18 @@ public class StartPage extends JFrame{
         this.setSize(497, 422); 
         this.getContentPane().setLayout(null);
         
-        //add each category to the drop down menu as options
+        
+      //default selection/what shows up before clicking category
+        category.addItem("Select category:");
+      //add each category to the drop down menu as options
         category.addItem("Majors");
         category.addItem("Places");
         category.addItem("Fictional People");
         category.addItem("Food");
         category.addItem("Companies");
         
-        //default selection/what shows up before clicking category
-        category.setSelectedItem("Select category:");
+        
+        
         
         //add the drop down menu for levels
         JComboBox levels = new JComboBox();
@@ -52,6 +55,10 @@ public class StartPage extends JFrame{
         this.setSize(497, 422); 
         this.getContentPane().setLayout(null);
         
+      //default selection/what shows up before clicking level
+        //add error checking later to make sure user selected level, otherwise assign random?
+        levels.addItem("Select level:");
+        
         //add levels to drop down menu
         levels.addItem("1");
         levels.addItem("2");
@@ -59,9 +66,7 @@ public class StartPage extends JFrame{
         levels.addItem("4");
         levels.addItem("5");
         
-        //default selection/what shows up before clicking level
-        //add error checking later to make sure user selected level, otherwise assign random?
-        levels.setSelectedItem("Select level:");
+        
         this.setVisible(true);
         
 
