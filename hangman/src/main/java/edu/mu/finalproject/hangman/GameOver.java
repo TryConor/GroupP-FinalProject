@@ -69,6 +69,7 @@ public class GameOver extends JFrame
 
         JPanel statsPanel = new JPanel();
 
+        //adding in the Statistics screen, its not fully working yet, will be working later
         gameWins = gameWins + wins;
 		JLabel winsLabel = new JLabel("Wins: " + gameWins);
 		gameLosses = gameLosses + losses;
