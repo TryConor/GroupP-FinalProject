@@ -20,6 +20,8 @@ public class HangmanDatabase {
             reader.close();
         } catch (IOException e) {
             e.printStackTrace();
+            // Handle the IOException here, such as displaying an error message or terminating the program
+            System.err.println("Error reading JSON database file: " + e.getMessage());
         }
     }
 

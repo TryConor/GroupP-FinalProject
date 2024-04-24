@@ -48,5 +48,6 @@
       "level3": ["general electric", "caterpillar", "american express", "commerce bank", "honeywell", "raytheon","home depot", "starbucks", "general motors"],
       "level4": ["charter communications", "progressive", "salesforce", "goldman sachs", "cvs health", "nvidia", "bethesda games studios", "ford motor", "capital one", "colgate"],
       "level5": ["berkshire hathaway", "proctor and gamble", "ernst and young", "international business machines", "exxon mobil", "jpmorgan chase", "johnson and johnson", "costco wholesale"]
+      		}
       }
 }
