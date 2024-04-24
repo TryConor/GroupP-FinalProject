@@ -27,7 +27,7 @@ public class StartPage extends JFrame{
         
         //add the drop down menu for categories
         JComboBox category = new JComboBox(); 
-        category.setEditable(true);
+        category.setEditable(false);
         category.setBounds(58,204,145,32);
         this.getContentPane().add(category);
         this.setSize(497, 422); 
@@ -47,7 +47,7 @@ public class StartPage extends JFrame{
         JComboBox levels = new JComboBox();
         levels.setBounds(224, 204, 145, 32);
         this.getContentPane().add(levels);
-        levels.setEditable(true);
+        levels.setEditable(false);
         this.getContentPane().add(category);
         this.setSize(497, 422); 
         this.getContentPane().setLayout(null);
