@@ -1,6 +1,6 @@
 package edu.mu.finalproject.hangman;
 
-import java.awt.BorderLayout;
+
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridBagConstraints;
@@ -8,8 +8,7 @@ import java.awt.GridBagLayout;
 import java.awt.Image;
 import java.awt.Insets;
 import java.awt.Toolkit;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+
 import java.io.File;
 import java.io.IOException;
 import java.time.LocalDate;
@@ -61,7 +60,7 @@ public class StartMenu extends JFrame implements Observer {
 		hangmanHolder = new JLabel();
 		
 		// draws the first image in the set
-		ImageIcon icon = new ImageIcon(getClass().getResource("/ImageAssets/hangman8.png"));
+		ImageIcon icon = new ImageIcon(getClass().getResource("/hangmanImages/hangman8.png"));
 		Image image = icon.getImage(); // transform it
 		Image newimg = image.getScaledInstance((int) (screenSize.getWidth() * .25),(int) (screenSize.getHeight() * .5), java.awt.Image.SCALE_SMOOTH);  // scale it the smooth way  
 		icon = new ImageIcon(newimg);  // transform it back
