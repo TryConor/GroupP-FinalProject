@@ -78,6 +78,7 @@ public class HangmanGame extends JFrame {
 		return result;
 	}
 	
+	//method for getting hints
 	public static String getHint(String word) {
         // Generate a hint for the given word
         // This implementation returns a random letter from the word
