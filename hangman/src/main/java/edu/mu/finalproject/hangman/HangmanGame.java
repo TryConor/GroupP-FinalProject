@@ -17,23 +17,7 @@ public class HangmanGame extends JFrame {
 	private static final String DATABASE_FILE = "words.json";
 	private static final ObjectMapper objectMapper = new ObjectMapper();
 	
-	// Checks if a given character matches any characters in the current word.
-	public static boolean[] checkArrayForMatches(String currentWord, char charToTest) {
-		String upperCaseCurretWord = currentWord.toUpperCase();
-		char[] currentWordArray = upperCaseCurretWord.toCharArray();
-		boolean[] returnArray = new boolean[currentWordArray.length];
 		
-		// Logic to check if the character matches any characters in the current word
-		for (int x = 0; x < returnArray.length; x++) {
-			char characterInArray = currentWordArray[x];
-			if (characterInArray == charToTest) {
-				returnArray[x] = true;
-			} else {
-				returnArray[x] = false;
-			}
-		}
-		return returnArray;
-	}
 	// Checks if an array contains at least one true value.
 	public static boolean doesArrayContainATrue(boolean[] someBoolArray) {
 		for (boolean x : someBoolArray) {

@@ -2,17 +2,8 @@ package edu.mu.finalproject.hangman;
 
 import static org.junit.Assert.assertEquals;
 
+
 import javax.swing.JButton;
-
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JTabbedPane;
-
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
-
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -26,8 +17,8 @@ import org.junit.jupiter.api.Test;
 class GameOverTest {
 
 	// Test for Tabbed Pane
-    @Test
 
+    @Test
     public void testTabbedPane() {
         // Create a new GameOver instance with sample data
         String gameOverStatement = "Game Over";
@@ -35,7 +26,7 @@ class GameOverTest {
         int losses = 2;
         int totalAttempts = 20;
         String username = "JohnDoe";
-        String whichHangmanPath = "/ImageAssets/hangman1.png";
+        String whichHangmanPath = "/hangmanImages/hangman1.png";
         String time = "00:04";
         GameOver gameOver = new GameOver(gameOverStatement, wins, losses, totalAttempts, username, whichHangmanPath,time);
         
@@ -65,9 +56,9 @@ class GameOverTest {
         int losses = 2;
         int totalAttempts = 20;
         String username = "JohnDoe";
-        String whichHangmanPath = "/ImageAssets/hangman1.png";
+        String whichHangmanPath = "/hangmanImages/hangman1.png";
         String time = "00:04";
-        GameOver gameOver = new GameOver(gameOverStatement, wins, losses, totalAttempts, username, whichHangmanPath,time);
+        GameOver gameOver = new GameOver(gameOverStatement, wins, losses, totalAttempts, username, whichHangmanPath, time);
         
         // Access the statistics panel from the tabbed pane
         JTabbedPane tabbedPane = (JTabbedPane) gameOver.getContentPane().getComponent(0); // Assuming tabbedPane is the first component
@@ -93,7 +84,7 @@ class GameOverTest {
         int losses = 2;
         int totalAttempts = 20;
         String username = "JohnDoe";
-        String whichHangmanPath = "/ImageAssets/hangman1.png";
+        String whichHangmanPath = "/hangmanImages/hangman1.png";
         String time = "00:04";
         GameOver gameOver = new GameOver(gameOverStatement, wins, losses, totalAttempts, username, whichHangmanPath,time);
         
@@ -114,7 +105,7 @@ class GameOverTest {
         int losses = 2;
         int totalAttempts = 20;
         String username = "JohnDoe";
-        String whichHangmanPath = "/ImageAssets/hangman1.png";
+        String whichHangmanPath = "/hangmanImages/hangman1.png";
         String time = "00:04";
         GameOver gameOver = new GameOver(gameOverStatement, wins, losses, totalAttempts, username, whichHangmanPath, time );
         
