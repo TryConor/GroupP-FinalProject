@@ -4,18 +4,19 @@ import static org.junit.Assert.assertEquals;
 
 
 import javax.swing.JButton;
-import javax.swing.JFrame;
+
+
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 
 
+import javax.swing.JFrame;
+
+
 import org.junit.jupiter.api.Test;
 
-
-
 class GameOverTest {
-
 	// Test for Tabbed Pane
 
     @Test
@@ -117,5 +118,4 @@ class GameOverTest {
         assertEquals("Play Again", gameOverButton.getText());
         assertEquals("End Game", endGameButton.getText());
     }
-
 }
