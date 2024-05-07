@@ -33,6 +33,12 @@ public class Hangman extends JFrame {
         gameTimer.stop();
     }
 	
+  //Update timer to display
+    private void updateTime() {
+        elapsedTimeInSeconds++;
+        timerLabel.setText("Time: " + elapsedTimeInSeconds + " seconds");
+    }
+    
 	private void initializeGameBoard() throws IOException {
         // Initialize the game board
         currentWord = HangmanGame.getRandomWord();
