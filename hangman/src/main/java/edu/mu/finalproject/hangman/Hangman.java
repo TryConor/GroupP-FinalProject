@@ -288,6 +288,15 @@ public class Hangman extends JFrame {
         getContentPane().add(entireGameBoard);
     }
 	
+	private void disableButton(String buttonName) {
+    	for (JButton button : buttons) {
+            if (button.getName().equals(buttonName)) {
+                button.setEnabled(false);
+                break;
+            }
+        }
+    }
+	
 	private void checkWinLoss(boolean[] isArrayRight) {
 	    // Check if the user has won or lost
 		if ((HangmanGame.doesArrayContainATrue(isArrayRight)) == true)// if user guesses correctly
