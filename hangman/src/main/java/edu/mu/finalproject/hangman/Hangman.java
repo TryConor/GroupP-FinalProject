@@ -17,12 +17,48 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
-import edu.mu.Game.GameOver;
-import edu.mu.Game.Hangman;
 import edu.mu.Game.HangmanGame;
-import edu.mu.Game.Hangman.ListenForKeyboard;
+
 
 public class Hangman extends JFrame {
+	 private static final long serialVersionUID = 1L;
+	    private char[] currentWordArray;
+	    private char[] toBeBlankArray;
+	    private int incorrectGuess = 1;
+	    private int wins;
+	    private int losses;
+	    private int totalAttempts;
+	    private String username;
+	    
+	    private javax.swing.Timer gameTimer;
+	    private int elapsedTimeInSeconds;
+	    private JLabel timerLabel;
+
+	    private String currentWord;
+	    private String whichHangmanPath;
+
+	    private JPanel entireGameBoard;
+	    private JLabel wordToGuess;
+	    private JLabel hangmanHolder;
+
+	    private JButton[] buttons;
+	    JButton A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z;
+	    
+	    
+	    // Set up category and level displays
+	    private JLabel categoryDisplays = new JLabel("Category: " + (String) StartMenu.categoryComboBox.getSelectedItem());
+	    private JLabel levelDisplays = new JLabel("Level: " + (String) StartMenu.levelComboBox.getSelectedItem());
+	    private JLabel space = new JLabel("         ");
+
+	    // Represents the main game screen for the Hangman game.
+	    public Hangman(String username, int totalWins, int totalLosses) throws IOException {
+	        this.losses = totalLosses;
+	        this.wins = totalWins;
+	        this.username = username;
+
+	        initializeGameBoard();
+	        setUpWindow();
+	    }
 	
 	//Start Timer
     private void startTimer() {
@@ -304,6 +340,38 @@ public class Hangman extends JFrame {
         getContentPane().add(entireGameBoard);
     }
 	
+	 // ActionListener implementation for the keyboard buttons.
+ 	private class ListenForKeyboard implements ActionListener {
+ 		@Override
+ 		public void actionPerformed(ActionEvent e) // every time a Letter is tried, this is fired
+ 		{
+ 			// receive the selected letter from the keyboard buttons which are all upper case 
+ 			String stringToConvert = ((JButton) e.getSource()).getText();
+ 			char charToSend = stringToConvert.charAt(0);
+ 
+ 			// convert the word in the array to all upper case letters 
+ 			String upperCaseCurretWord = currentWord.toUpperCase();
+ 			currentWordArray = upperCaseCurretWord.toCharArray();
+ 			
+ 			// consider containing this logic inside method?
+ 			boolean[] isArrayRight = HangmanGame.checkArrayForMatches(currentWordArray, charToSend);
+ 			
+ 			//updateWordToShow(isArrayRight,currentWordArray);
+ 			// takes the blanks and fills in the letter if guess was correct
+ 			String wordToShow = new String(updateWordToShow(isArrayRight,currentWordArray));
+ 			
+ 			totalAttempts++;
+ 			// refreshes the JPanel holding the word to guess
+ 			wordToGuess.setText(wordToShow); 
+ 			
+ 			checkWinLoss(isArrayRight);
+ 
+ 			String buttonName = ((JButton) e.getSource()).getText();
+ 			System.out.println("Button clicked: " + buttonName);
+ 			disableButton(buttonName);
+ 			
+ 		}
+ 		
 	private char[] updateWordToShow(boolean[] isArrayRight, char[] currentWordArray) {
         // Update the word to guess with the correct letters
     	for (int x = 0; x < toBeBlankArray.length; x++) {
@@ -354,5 +422,6 @@ public class Hangman extends JFrame {
 				hangmanHolder.setIcon// updates image to add body part
 				(new ImageIcon(getClass().getResource(whichHangmanPath)));
 			}
+		}
 	}
 }
