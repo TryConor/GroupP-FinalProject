@@ -92,6 +92,7 @@ public class Hangman extends JFrame {
         JPanel topRow = new JPanel();
         JPanel medRow = new JPanel();
         JPanel bottomRow = new JPanel();
+        JPanel helpRow = new JPanel();
 
         // Define JLabels
         hangmanHolder = new JLabel();
@@ -198,12 +199,13 @@ public class Hangman extends JFrame {
         
         
         // Set up layouts
-        gridForRows.setLayout(new GridLayout(5, 0, 3, 3)); // (rows, cols(0 means auto), xpadding, ypadding)
+        gridForRows.setLayout(new GridLayout(6, 0, 3, 3)); // (rows, cols(0 means auto), xpadding, ypadding)
         topMostRow.setLayout(new FlowLayout());
         firstRow.setLayout(new FlowLayout());
         topRow.setLayout(new FlowLayout());
         medRow.setLayout(new FlowLayout());
         bottomRow.setLayout(new FlowLayout());
+        helpRow.setLayout(new FlowLayout());
         entireGameBoard.setLayout(new FlowLayout());
 
         // Make an array that contains blanks the length of the currentWord
@@ -276,12 +278,12 @@ public class Hangman extends JFrame {
 		});
 
 		// Add the help button to the game board
-		
+		helpRow.add(helpButton);
         // Add components to the game board
         entireGameBoard.add(hangmanHolder);
         entireGameBoard.add(wordToGuess);
         entireGameBoard.add(keyboardHolder);
-        entireGameBoard.add(helpButton);
+//        entireGameBoard.add(helpButton);
         
         // Add layouts together
         gridForRows.add(topMostRow);
@@ -289,6 +291,7 @@ public class Hangman extends JFrame {
         gridForRows.add(topRow);
         gridForRows.add(medRow);
         gridForRows.add(bottomRow);
+        gridForRows.add(helpButton);
         keyboardHolder.add(gridForRows);
         
         // Add action listeners to the buttons
