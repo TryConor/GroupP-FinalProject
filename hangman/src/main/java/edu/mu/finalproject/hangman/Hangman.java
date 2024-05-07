@@ -193,7 +193,7 @@ public class Hangman extends JFrame {
         buttons = new JButton[] {A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z};
 
         // Set up hangman image
-        whichHangmanPath = "/ImageAssets/hangman" + incorrectGuess + ".png";
+        whichHangmanPath = "/hangmanImages/hangman" + incorrectGuess + ".png";
         hangmanHolder.setIcon(new ImageIcon(getClass().getResource(whichHangmanPath)));
         
         
@@ -405,7 +405,7 @@ public class Hangman extends JFrame {
 			} else// fires if they guessed wrong
 			{
 				incorrectGuess++;
-				whichHangmanPath = "/ImageAssets/hangman" + incorrectGuess + ".png";
+				whichHangmanPath = "/hangmanImages/hangman" + incorrectGuess + ".png";
 				if (incorrectGuess == 7)// player loses
 				{
 					stopTimer();
