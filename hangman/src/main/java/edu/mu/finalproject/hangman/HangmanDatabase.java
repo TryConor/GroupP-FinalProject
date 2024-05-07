@@ -1,4 +1,5 @@
 package edu.mu.finalproject.hangman;
+import java.util.Set;
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
@@ -21,9 +22,21 @@ public class HangmanDatabase {
         } catch (IOException e) {
             e.printStackTrace();
             // Handle the IOException here, such as displaying an error message or terminating the program
-            System.err.println("Error reading JSON database file: " + e.getMessage());
+            System.err.println("Error reading JSON database file: " + e.getMessage());	
         }
     }
+    
+    //method to retrieve available categories
+    public Set<String> getCategories() {
+    	return database.getAsJsonObject("categories").keySet();
+    }
+    
+    //gets a random word based on selected category and level
+    public String getRandomWordForCategoryAndLevel(String category, String level) {
+        String[] words = getWordsForLevel(category, "level" + level);
+        return words[(int) (Math.random() * words.length)];
+    }
+
 
     public String[] getWordsForLevel(String category, String level) {
         JsonObject categoryObject = database.getAsJsonObject("categories").getAsJsonObject(category);

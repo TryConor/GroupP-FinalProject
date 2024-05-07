@@ -1,5 +1,7 @@
 package edu.mu.finalproject.hangman;
 
+
+import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
@@ -12,6 +14,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 
+
 public class GameOver extends JFrame
 {
     JButton gameOverButton;
@@ -23,9 +26,10 @@ public class GameOver extends JFrame
 
     public GameOver(int xLocation, int yLocation, String gameOverStatement, int wins, int losses, int totalAttempts) {
         this.setSize(800, 300);
+//    	this.setPreferredSize(new Dimension(xLocation, yLocation));
         this.setResizable(false);
         this.setVisible(true);
-        this.setLocation(xLocation - 150, yLocation + 200);
+        this.setLocation(xLocation -150, yLocation +200); //-150,+200
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setTitle("Hangman");
         this.validate();
@@ -36,10 +40,9 @@ public class GameOver extends JFrame
         endGameButton = new JButton("End Game");
 
         Font gameOverFont = new Font("Helvetica", Font.PLAIN, 30);
-        
-        //adding the Game Over message to the screen
+
         tabbedPane = new JTabbedPane();
-        gameOverPanel.setLayout(new GridBagLayout());
+        gameOverPanel.setLayout(new GridBagLayout());//will make pretty later when I work on options menu: gridbag
         messageToSay.setText(gameOverStatement);
         messageToSay.setFont(gameOverFont);
 
@@ -50,16 +53,14 @@ public class GameOver extends JFrame
             public void actionPerformed(ActionEvent e) {
             	int xLocation = GameOver.super.getX();
                 int yLocation = GameOver.super.getY();
-                //will have to update this later
-                new StartPage(xLocation + 75, yLocation - 100);
+                new StartPage(xLocation +75, yLocation -100);//+75,-100
                 GameOver.super.dispose();
             }
         });
-        
-        //populating panel
+
         gbc.gridx = 0;
         gbc.gridy = 0;
-        gameOverPanel.add(messageToSay, gbc);
+        gameOverPanel.add(messageToSay, gbc);//populating panel
         gbc.gridx = 0;
         gbc.gridy = 1;
         gameOverPanel.add(gameOverButton, gbc);
@@ -69,7 +70,7 @@ public class GameOver extends JFrame
 
         JPanel statsPanel = new JPanel();
 
-        //adding in the Statistics screen, its not fully working yet, will be working later
+        //JLabel User = new JLabel(username);
         gameWins = gameWins + wins;
 		JLabel winsLabel = new JLabel("Wins: " + gameWins);
 		gameLosses = gameLosses + losses;
@@ -92,7 +93,7 @@ public class GameOver extends JFrame
         public void actionPerformed(ActionEvent e) {
             int xLocation = GameOver.super.getX();
             int yLocation = GameOver.super.getY();
-            new Hangman(xLocation + 75, yLocation - 100);
+            new Hangman(xLocation +75, yLocation -100);//+75, -100
             GameOver.super.dispose();
         }
     }
