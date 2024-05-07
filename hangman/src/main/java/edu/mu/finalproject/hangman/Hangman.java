@@ -23,7 +23,10 @@ import edu.mu.Game.Hangman.ListenForKeyboard;
 
 public class Hangman extends JFrame {
 	
-	
+	//Stop Timer
+    private void stopTimer() {
+        gameTimer.stop();
+    }
 	
 	private void initializeGameBoard() throws IOException {
         // Initialize the game board
