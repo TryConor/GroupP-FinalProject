@@ -17,6 +17,7 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
+import edu.mu.Game.GameOver;
 import edu.mu.Game.Hangman;
 import edu.mu.Game.HangmanGame;
 import edu.mu.Game.Hangman.ListenForKeyboard;
@@ -286,4 +287,36 @@ public class Hangman extends JFrame {
         // Add the game board to the content pane
         getContentPane().add(entireGameBoard);
     }
+	
+	private void checkWinLoss(boolean[] isArrayRight) {
+	    // Check if the user has won or lost
+		if ((HangmanGame.doesArrayContainATrue(isArrayRight)) == true)// if user guesses correctly
+			{
+				if ((HangmanGame.doesArrayContainUnderscores(toBeBlankArray)) == false)// user has won
+				{
+					stopTimer();
+					String finalTime = formatTime(elapsedTimeInSeconds);
+					wins += 1;// total game wins
+					String winPhrase = username + ", you won in " + finalTime + "! The word was '" + currentWord + "'.";
+					new GameOver(winPhrase, wins, losses, totalAttempts, username, whichHangmanPath, finalTime);
+					Hangman.super.dispose();
+				}
+			} else// fires if they guessed wrong
+			{
+				incorrectGuess++;
+				whichHangmanPath = "/ImageAssets/hangman" + incorrectGuess + ".png";
+				if (incorrectGuess == 7)// player loses
+				{
+					stopTimer();
+					String finalTime = formatTime(elapsedTimeInSeconds);
+					losses++;// total game losses
+					String losePhrase = username + ", you lost in " + finalTime + ". The word was '" + currentWord + "'.";
+					new GameOver(losePhrase, wins, losses, totalAttempts, username, whichHangmanPath, finalTime);
+					Hangman.super.dispose();
+				}
+
+				hangmanHolder.setIcon// updates image to add body part
+				(new ImageIcon(getClass().getResource(whichHangmanPath)));
+			}
+	}
 }
