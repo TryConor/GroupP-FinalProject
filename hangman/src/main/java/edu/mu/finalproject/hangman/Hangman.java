@@ -271,5 +271,19 @@ public class Hangman extends JFrame {
 		Z.addActionListener(keyboardListener);
     }
 	
-	
+	private void setUpWindow() {
+        // Set up the window
+        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+        int width = (int) screenSize.getWidth();
+        int height = (int) screenSize.getHeight();
+
+        this.setSize(width, height);
+        this.setVisible(true);
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setResizable(true);
+        this.setTitle("Hangman: " + username);
+
+        // Add the game board to the content pane
+        getContentPane().add(entireGameBoard);
+    }
 }
