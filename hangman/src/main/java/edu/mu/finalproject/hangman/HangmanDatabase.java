@@ -11,4 +11,8 @@ import java.util.List;
 
 public class HangmanDatabase {
 	
+	public void addCategory(String category, Map<String, List<String>> levelWords) {
+        categories.put(category, levelWords);
+        notifyObservers();
+    }
 }
