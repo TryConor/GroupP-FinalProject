@@ -3,7 +3,7 @@ package edu.mu.finalproject.hangman;
 import static org.junit.Assert.assertEquals;
 
 import javax.swing.JButton;
-<<<<<<< HEAD
+
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
@@ -12,25 +12,22 @@ import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
-=======
+
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 
->>>>>>> branch 'main' of git@github.com:TryConor/GroupP-FinalProject.git
+
 import org.junit.jupiter.api.Test;
 
 
 
 class GameOverTest {
 
-<<<<<<< HEAD
 	// Test for Tabbed Pane
     @Test
-=======
-	@Test
->>>>>>> branch 'main' of git@github.com:TryConor/GroupP-FinalProject.git
+
     public void testTabbedPane() {
         // Create a new GameOver instance with sample data
         String gameOverStatement = "Game Over";
