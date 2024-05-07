@@ -86,4 +86,10 @@ public class StartMenu extends JFrame{
         return currentDay;
     }
 	
+	@Override
+	public void update(Database database) {
+		// TODO Auto-generated method stub
+		populateLevelComboBox(database);
+	}
+	
 }
