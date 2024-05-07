@@ -37,13 +37,11 @@ class GameOverTest {
         // Verify that there are two tabs in the tabbed pane
         assertEquals(2, tabbedPane.getTabCount());
         
-        // Verify that the first tab contains the game over panel
-        JPanel gameOverPanel = (JPanel) tabbedPane.getComponentAt(0);
+        tabbedPane.getComponentAt(0);
         assertEquals("Game Over", tabbedPane.getTitleAt(0)); // Assuming the title of the first tab is "Game Over"
         // Additional assertions for the game over panel can be added here
         
-        // Verify that the second tab contains the statistics panel
-        JPanel statsPanel = (JPanel) tabbedPane.getComponentAt(1);
+        tabbedPane.getComponentAt(1);
         assertEquals("Statistics", tabbedPane.getTitleAt(1)); // Assuming the title of the second tab is "Statistics"
         // Additional assertions for the statistics panel can be added here
     }

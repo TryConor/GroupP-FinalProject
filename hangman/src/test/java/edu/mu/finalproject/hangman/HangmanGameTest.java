@@ -40,10 +40,7 @@ class HangmanDiffblueTest {
         String username = "JohnDoe";
         int totalWins = 5;
         int totalLosses = 3;
-        Hangman hangman = new Hangman(username, totalWins, totalLosses);
-//        assertEquals(username, hangman.username);
-//        assertEquals(totalWins, hangman.wins);
-//        assertEquals(totalLosses, hangman.losses);
+        new Hangman(username, totalWins, totalLosses);
     }
     
 //    @Test
@@ -66,10 +63,7 @@ class HangmanDiffblueTest {
     
     @Test
     public void testGameOverWin() throws IOException {
-        Hangman hangman = new Hangman("JohnDoe", 0, 0);
-//        hangman.currentWord = "TEST";
-//        hangman.toBeBlankArray = "TEST".toCharArray();
-//        hangman.wordToGuess.setText("TEST");
+        new Hangman("JohnDoe", 0, 0);
         
        // hangman.actionPerformed(new ActionEvent(hangman.butT, 0, ""));
 //        assertEquals(1, hangman.wins);
@@ -78,45 +72,17 @@ class HangmanDiffblueTest {
     
     @Test
     public void testGameOverLoss() throws IOException {
-        Hangman hangman = new Hangman("JohnDoe", 0, 0);
-//        hangman.currentWord = "TEST";
-//        hangman.toBeBlankArray = "TEST".toCharArray();
-//        hangman.incorrectGuess = 7;
-//        hangman.wordToGuess.setText("TEST");
-//       // hangman.actionPerformed(new ActionEvent(hangman.butX, 0, ""));
-//        assertEquals(1, hangman.losses);
-        //assertEquals("JohnDoe, you lost! The word was 'TEST'.", hangman.getGameOverMessage());
+        new Hangman("JohnDoe", 0, 0);
     }
 
 @Test
     public void testCorrectGuessActionListener() throws IOException {
-        Hangman hangman = new Hangman("JohnDoe", 0, 0);
-//        hangman.currentWord = "TEST";
-//        hangman.toBeBlankArray = "____".toCharArray(); // To simulate initial blank word
-//        hangman.wordToGuess.setText("____"); // To simulate initial display
-//
-//        // Simulate clicking the 'T' button
-//        //hangman.butT.doClick();
-//        //hangman.actionPerformed(new ActionEvent(hangman.butT, 0, ""));
-//
-//        // Check if 'T' has been revealed in the word
-//        assertEquals("T___", new String(hangman.toBeBlankArray));
-//        assertEquals("T___", hangman.wordToGuess.getText());
+        new Hangman("JohnDoe", 0, 0);
     }
 
     @Test
     public void testIncorrectGuessActionListener() throws IOException {
-        Hangman hangman = new Hangman("JohnDoe", 0, 0);
-//        hangman.currentWord = "TEST";
-//        hangman.toBeBlankArray = "____".toCharArray(); // To simulate initial blank word
-//        hangman.wordToGuess.setText("____"); // To simulate initial display
-//
-//        // Simulate clicking the 'X' button (incorrect guess)
-//       // hangman.actionPerformed(new ActionEvent(hangman.butX, 0, ""));
-//
-//        // Check if hangman image path has updated and incorrect guess count incremented
-//        assertEquals("/ImageAssets/hangman2.png", hangman.whichHangmanPath);
-//        assertEquals(2, hangman.incorrectGuess);
+        new Hangman("JohnDoe", 0, 0);
     }
 
     @Test
@@ -133,9 +99,7 @@ class HangmanDiffblueTest {
 
     @Test
     public void testGameOverWinActionListener() throws IOException {
-        Hangman hangman = new Hangman("JohnDoe", 0, 0);
-//        hangman.currentWord = "TEST";
-//        hangman.toBeBlankArray = "TEST".toCharArray(); // Simulate word completely guessed
+        new Hangman("JohnDoe", 0, 0);
 
         // Simulate clicking the 'T' button to reveal the word
         //hangman.actionPerformed(new ActionEvent(hangman.butT, 0, ""));
@@ -146,8 +110,7 @@ class HangmanDiffblueTest {
 
     @Test
     public void testGameOverLossActionListener() throws IOException {
-        Hangman hangman = new Hangman("JohnDoe", 0, 0);
-//        hangman.incorrectGuess = 7; // Simulate 7 incorrect guesses
+        new Hangman("JohnDoe", 0, 0);
 
         // Simulate clicking the 'X' button (incorrect guess)
         //hangman.actionPerformed(new ActionEvent(hangman.butX, 0, ""));
