@@ -5,6 +5,7 @@ import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -72,6 +73,17 @@ public class StartMenu extends JFrame{
 
         // Return the clock label
         return clockLabel;
+    }
+	public static String getCurrentDay() {
+        // Get the current time and day
+        LocalDate date = LocalDate.now();
+        String stringDate = "Date: ";
+        
+        // Format the time and day as a string
+        String currentDay = stringDate + date;
+
+        // Return the formatted string
+        return currentDay;
     }
 	
 }
