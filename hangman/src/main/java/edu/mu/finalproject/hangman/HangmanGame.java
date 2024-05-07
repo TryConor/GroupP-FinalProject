@@ -9,8 +9,6 @@ import java.util.Random;
 
 import javax.swing.JFrame;
 
-
-
 public class HangmanGame extends JFrame {
 	
 }
