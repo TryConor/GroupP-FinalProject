@@ -304,6 +304,17 @@ public class Hangman extends JFrame {
         getContentPane().add(entireGameBoard);
     }
 	
+	private char[] updateWordToShow(boolean[] isArrayRight, char[] currentWordArray) {
+        // Update the word to guess with the correct letters
+    	for (int x = 0; x < toBeBlankArray.length; x++) {
+			if (isArrayRight[x] == true) {
+					toBeBlankArray[x] = currentWordArray[x];
+				}
+		}
+    	System.out.println(toBeBlankArray);
+        return toBeBlankArray;
+    }
+	
 	private void disableButton(String buttonName) {
     	for (JButton button : buttons) {
             if (button.getName().equals(buttonName)) {
