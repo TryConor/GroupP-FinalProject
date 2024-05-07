@@ -38,6 +38,12 @@ public class Hangman extends JFrame {
         elapsedTimeInSeconds++;
         timerLabel.setText("Time: " + elapsedTimeInSeconds + " seconds");
     }
+  //Formats the time
+    private String formatTime(int seconds) {
+        int minutes = seconds / 60;
+        int remainingSeconds = seconds % 60;
+        return String.format("%02d:%02d", minutes, remainingSeconds);
+    }
     
 	private void initializeGameBoard() throws IOException {
         // Initialize the game board
