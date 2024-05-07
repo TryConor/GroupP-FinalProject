@@ -10,5 +10,18 @@ import java.io.IOException;
 import javax.swing.JFrame;
 
 public class Main {
-	
+	EventQueue.invokeLater(new Runnable() {
+		public void run() {
+			try {
+				// Create and display the StartMenu
+				StartMenu startmenu = new StartMenu();
+				startmenu.setResizable(false);
+				startmenu.setVisible(true);
+				startmenu.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+	});
+
 }
