@@ -17,9 +17,6 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
-import edu.mu.Game.HangmanGame;
-
-
 public class Hangman extends JFrame {
 	 private static final long serialVersionUID = 1L;
 	    private char[] currentWordArray;

@@ -1,19 +1,11 @@
 package edu.mu.finalproject.hangman;
-import java.util.Set;
-import com.google.gson.Gson;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonObject;
 
-import edu.mu.Game.Observer;
-import edu.mu.Game.Subject;
-
-import java.io.FileReader;
-import java.io.IOException;
-import java.nio.file.Paths;
 import java.util.ArrayList;
+
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
 
 public class Database implements Subject{
 	private Map<String, Map<String, List<String>>> categories;
@@ -47,9 +39,9 @@ public class Database implements Subject{
 		// TODO Auto-generated method stub
 		observers.add(observer);
 	}
-
+	
 	@Override
-	public void removeObserver(edu.mu.finalproject.hangman observer) {
+	public void removeObserver(Observer observer) {
 		// TODO Auto-generated method stub
 		observers.remove(observer);
 	}
