@@ -49,7 +49,7 @@ public class Database implements Subject{
 	}
 
 	@Override
-	public void removeObserver(edu.mu.Game.Observer observer) {
+	public void removeObserver(edu.mu.finalproject.hangman observer) {
 		// TODO Auto-generated method stub
 		observers.remove(observer);
 	}
