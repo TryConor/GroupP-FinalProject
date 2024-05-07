@@ -3,6 +3,7 @@ package edu.mu.finalproject.hangman;
 import static org.junit.Assert.assertEquals;
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.awt.event.ActionEvent;
 import java.io.IOException;
 
 import javax.swing.JButton;
@@ -10,31 +11,31 @@ import javax.swing.JButton;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
-class HangmanDiffblueTest {
+class HangmanGameTest {
     /**
      * Method under test: {@link Hangman#Hangman(String, int, int)}
      */
-//    @Test
-//    @Disabled("TODO: Complete this test")
-//    void testNewHangman() throws IOException {
-//        // TODO: Diffblue Cover was only able to create a partial test for this method:
-//        //   Reason: No inputs found that don't throw a trivial exception.
-//        //   Diffblue Cover tried to run the arrange/act section, but the method under
-//        //   test threw
-//        //   java.awt.HeadlessException
-//        //       at java.desktop/java.awt.GraphicsEnvironment.checkHeadless(GraphicsEnvironment.java:166)
-//        //       at java.desktop/java.awt.Window.<init>(Window.java:553)
-//        //       at java.desktop/java.awt.Frame.<init>(Frame.java:428)
-//        //       at java.desktop/java.awt.Frame.<init>(Frame.java:393)
-//        //       at java.desktop/javax.swing.JFrame.<init>(JFrame.java:180)
-//        //       at edu.mu.Game.Hangman.<init>(Hangman.java:48)
-//        //   See https://diff.blue/R013 to resolve this issue.
-//
-//        // Arrange and Act
-//        Hangman newman = new Hangman("janedoe", 1, 1);
-//        assertEquals(newman,new Hangman("janedoe", 1, 1) );
-//
-//    }    
+    @Test
+    @Disabled("TODO: Complete this test")
+    void testNewHangman() throws IOException {
+        // TODO: Diffblue Cover was only able to create a partial test for this method:
+        //   Reason: No inputs found that don't throw a trivial exception.
+        //   Diffblue Cover tried to run the arrange/act section, but the method under
+        //   test threw
+        //   java.awt.HeadlessException
+        //       at java.desktop/java.awt.GraphicsEnvironment.checkHeadless(GraphicsEnvironment.java:166)
+        //       at java.desktop/java.awt.Window.<init>(Window.java:553)
+        //       at java.desktop/java.awt.Frame.<init>(Frame.java:428)
+        //       at java.desktop/java.awt.Frame.<init>(Frame.java:393)
+        //       at java.desktop/javax.swing.JFrame.<init>(JFrame.java:180)
+        //       at edu.mu.Game.Hangman.<init>(Hangman.java:48)
+        //   See https://diff.blue/R013 to resolve this issue.
+
+        // Arrange and Act
+        Hangman newman = new Hangman("janedoe", 1, 1);
+        assertEquals(newman,new Hangman("janedoe", 1, 1) );
+
+    }    
     @Test
     public void testConstructor() throws IOException {
         String username = "JohnDoe";
@@ -63,11 +64,20 @@ class HangmanDiffblueTest {
     
     @Test
     public void testGameOverWin() throws IOException {
+<<<<<<< Updated upstream
         new Hangman("JohnDoe", 0, 0);
         
        // hangman.actionPerformed(new ActionEvent(hangman.butT, 0, ""));
+=======
+        Hangman hangman = new Hangman("JohnDoe", 0, 0);
+//        hangman.currentWord = "TEST";
+//       hangman.toBeBlankArray = "TEST".toCharArray();
+//        hangman.wordToGuess.setText("TEST");
+//        
+//        hangman.actionPerformed(new ActionEvent(hangman.T, 0, ""));
+>>>>>>> Stashed changes
 //        assertEquals(1, hangman.wins);
-       //assertEquals("JohnDoe, you won! The word was 'TEST'.", hangman.getGameOverMessage());
+//       assertEquals("JohnDoe, you won! The word was 'TEST'.", hangman.getGameOverMessage());
     }
     
     @Test
