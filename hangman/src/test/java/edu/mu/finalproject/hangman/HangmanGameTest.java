@@ -64,18 +64,15 @@ class HangmanGameTest {
     
     @Test
     public void testGameOverWin() throws IOException {
-<<<<<<< Updated upstream
         new Hangman("JohnDoe", 0, 0);
         
        // hangman.actionPerformed(new ActionEvent(hangman.butT, 0, ""));
-=======
         Hangman hangman = new Hangman("JohnDoe", 0, 0);
 //        hangman.currentWord = "TEST";
 //       hangman.toBeBlankArray = "TEST".toCharArray();
 //        hangman.wordToGuess.setText("TEST");
 //        
 //        hangman.actionPerformed(new ActionEvent(hangman.T, 0, ""));
->>>>>>> Stashed changes
 //        assertEquals(1, hangman.wins);
 //       assertEquals("JohnDoe, you won! The word was 'TEST'.", hangman.getGameOverMessage());
     }
