@@ -7,12 +7,15 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
+
+import edu.mu.Game.Hangman;
 
 //Represents the Game Over Screen in Hangman
 
@@ -100,5 +103,55 @@ public class GameOver extends JFrame{
         gbc.gridx = 0;
         gbc.gridy = 3;
         gameOverPanel.add(endGameButton, gbc);
+
+
+        
+	        // Create and populate statistics panel
+	        JPanel statsPanel = new JPanel();
+	        gameWins = gameWins + wins;
+			JLabel winsLabel = new JLabel("Wins: " + gameWins + "  ");
+			gameLosses = gameLosses + losses;
+			JLabel lossesLabel = new JLabel("Losses: " + gameLosses + "  ");
+	        JLabel attemptsLabel = new JLabel("Total Attempts: " + totalAttempts + " ");
+	        JLabel time = new JLabel("Time Elapsed: " + finalTime);
+	        
+	        // format the wins, losses, attempts
+	        winsLabel.setFont(new Font("Franklin Gothic Heavy", Font.PLAIN, 30));
+	        lossesLabel.setFont(new Font("Franklin Gothic Heavy", Font.PLAIN, 30));
+	        attemptsLabel.setFont(new Font("Franklin Gothic Heavy", Font.PLAIN, 30));
+	        time.setFont(new Font("Franklin Gothic Heavy", Font.PLAIN, 30));
+	
+	        // Add labels to statistics panel
+	        statsPanel.add(winsLabel);
+	        statsPanel.add(lossesLabel);
+	        statsPanel.add(attemptsLabel);
+	        statsPanel.add(time);
+	        
+	        // Add game over and statistics panels to tabbed pane
+	        tabbedPane.addTab("Game Over", gameOverPanel);
+	        tabbedPane.addTab("Statistics", statsPanel);
+	    
+	        // Add tabbed pane to frame
+	        this.add(tabbedPane);
+    
 }
+
+
+
+	// ActionListener implementation for the buttons in the game over screen.
+	private class ListenForButton implements ActionListener {
+	    @Override
+	    public void actionPerformed(ActionEvent e) {
+	        try {
+	        	new Hangman(username, gameWins, gameLosses);
+			} catch (IOException e1) {
+				e1.printStackTrace();
+			}//+75, -100
+	        GameOver.super.dispose();
+	    }
+	}
+}
+    
+    
+    
 
