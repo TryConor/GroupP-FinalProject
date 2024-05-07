@@ -9,7 +9,7 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
-public class HangmanDatabase {
+public class Database {
 	
 	public void addCategory(String category, Map<String, List<String>> levelWords) {
         categories.put(category, levelWords);
