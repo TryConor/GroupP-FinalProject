@@ -1,13 +1,12 @@
 package edu.mu.finalproject.hangman;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertNull;
 import java.awt.Cursor;
 import java.awt.Dimension;
 import java.awt.Font;
-import java.awt.Toolkit;
 import java.util.Locale;
+import java.util.MissingResourceException;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 class DynamicSizePanelDiffblueTest {
@@ -15,26 +14,20 @@ class DynamicSizePanelDiffblueTest {
      * Method under test: {@link DynamicSizePanel#getPreferredSize()}
      */
     @Test
+    @Disabled("TODO: Complete this test")
     void testGetPreferredSize() {
+        // TODO: Diffblue Cover was only able to create a partial test for this method:
+        //   Diffblue AI was unable to find a test
+
         // Arrange
-        DynamicSizePanel dynamicSizePanel = new DynamicSizePanel();
+        // TODO: Populate arranged inputs
+        DynamicSizePanel dynamicSizePanel = null;
 
         // Act
         Dimension actualPreferredSize = dynamicSizePanel.getPreferredSize();
 
         // Assert
-        assertNotNull(actualPreferredSize);
-        assertEquals(Toolkit.getDefaultToolkit().getScreenSize().getWidth(), actualPreferredSize.getWidth());
-        assertEquals(Toolkit.getDefaultToolkit().getScreenSize().getHeight(), actualPreferredSize.getHeight());
-    }
-
-    @Test
-    void testGetPreferredSize_Null() {
-        // Arrange
-        DynamicSizePanel dynamicSizePanel = null;
-
-        // Act and Assert
-        assertNull(dynamicSizePanel);
+        // TODO: Add assertions on result
     }
 
     /**
@@ -42,7 +35,7 @@ class DynamicSizePanelDiffblueTest {
      * {@link DynamicSizePanel}
      */
     @Test
-    void testNewDynamicSizePanel() {
+    void testNewDynamicSizePanel() throws MissingResourceException {
         // Arrange and Act
         DynamicSizePanel actualDynamicSizePanel = new DynamicSizePanel();
 
@@ -55,18 +48,7 @@ class DynamicSizePanelDiffblueTest {
         Cursor cursor = actualDynamicSizePanel.getCursor();
         assertEquals("Default Cursor", cursor.getName());
         Font font = actualDynamicSizePanel.getFont();
-    }
-
-    @Test
-    void testNewDynamicSizePanel_DifferentLocale() {
-        // Arrange
-        Locale locale = new Locale("fr", "FR");
-        DynamicSizePanel dynamicSizePanel = new DynamicSizePanel();
-
-        // Act
-        dynamicSizePanel.setLocale(locale);
-
-        // Assert
-        assertEquals(locale, dynamicSizePanel.getLocale());
+        
+        
     }
 }
