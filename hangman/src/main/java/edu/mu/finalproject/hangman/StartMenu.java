@@ -36,5 +36,42 @@ public class StartMenu extends JFrame{
 			}
 		}
 	}
+	public static JLabel createClockLabel() {
+        // Create a label to display the clock
+        JLabel clockLabel = new JLabel();
+
+        // Create a formatter to format the time as a string
+        DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("hh:mm a");
+
+        // Create a Runnable to update the label with the current time
+        Runnable clockUpdater = () -> {
+            while (true) {
+                // Get the current time
+                LocalTime time = LocalTime.now();
+
+                // Format the time as a string
+                String timeString = time.format(timeFormatter);
+
+                // Update the label with the current time
+                clockLabel.setText(timeString);
+
+                // Sleep for 1 second
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        };
+
+        // Start a new thread to update the clock label
+        Thread clockThread = new Thread(clockUpdater);
+        clockThread.start();
+        
+        clockLabel.setFont(new Font("Franklin Gothic Heavy", Font.PLAIN, 15));
+
+        // Return the clock label
+        return clockLabel;
+    }
 	
 }
